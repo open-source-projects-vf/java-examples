@@ -4,17 +4,18 @@ public class HelloWorld {
         return s;
     }
 
-    public void unusedParameter(String s) {
-        if(true) {}
-        System.out.println("Hello world!");
-    }
-    
-    public void unusedParameterWithAlwaysTrueClosure(String s) {
-        if(true) {}
-        System.out.println("Hello world!");
-    }
-
-    public static void main(String[] args) {
-        System.out.println(new HelloWorld().sameReturnValue("hi"));
+    public static void main(String[] args){
+        boolean[][] world = gen();
+        show(world);
+        System.out.println();
+        world = nextGen(world);
+        show(world);
+        Scanner s = new Scanner(System.in);
+        while(s.nextLine().length() == 0){
+            System.out.println();
+            world = nextGen(world);
+            show(world);
+            
+        }
     }
 }
