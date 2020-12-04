@@ -13,7 +13,6 @@ public class Test {
 
     public static void main(String[] args) {
         boolean[][] world = gen();
-        System.out.println();
         Scanner s = new Scanner(System.in);
         while (s.nextLine().length() == 0) {
             System.out.println();
