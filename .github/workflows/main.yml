@@ -30,4 +30,4 @@ jobs:
         with:
           name: qodana-results
           path: |
-            ${GITHUB_WORKSPACE}/qodana/report/results
+            qodana/report/results
