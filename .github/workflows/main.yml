@@ -20,7 +20,9 @@ jobs:
          echo $GITHUB_WORKSPACE
          echo --------------------------------
          ls $GITHUB_WORKSPACE/
+         echo --------------------------------
          ls $GITHUB_WORKSPACE/qodana/
+         echo --------------------------------
          ls ${GITHUB_WORKSPACE}/qodana/report/results
         
       - name: Archive qodana results
