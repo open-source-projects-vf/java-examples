@@ -21,11 +21,11 @@ jobs:
          echo $GITHUB_WORKSPACE
          echo --------------------------------
          ls $GITHUB_WORKSPACE/
-         ls $GITHUB_WORKSPACE/results/
+         ls $GITHUB_WORKSPACE/qodana/
         
       - name: Archive qodana results
         uses: actions/upload-artifact@v2
         with:
           name: qodana-results
           path: |
-            qodana/report/results/result-allProblems.json
+            ${GITHUB_WORKSPACE}/qodana/report/results/result-allProblems.json
