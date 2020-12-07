@@ -14,11 +14,18 @@ jobs:
       
       # Runs a single command using the runners shell
       - name: Run Code Inspection
-        run: docker run -v  ${GITHUB_WORKSPACE}:/data/project -v ${GITHUB_WORKSPACE}/results:/data/results jetbrains/qodana:2020.3-eap
+        run: docker run -v  ${GITHUB_WORKSPACE}:/data/project -v ${GITHUB_WORKSPACE}/qodana:/data/results jetbrains/qodana:2020.3-eap --save-report
+        
+      - name: Bash
+        run: |
+         echo $GITHUB_WORKSPACE
+         echo --------------------------------
+         ls $GITHUB_WORKSPACE/
+         ls $GITHUB_WORKSPACE/results/
         
       - name: Archive qodana results
         uses: actions/upload-artifact@v2
         with:
           name: qodana-results
           path: |
-            results/report/results/result-allProblems.json
+            qodana/report/results/result-allProblems.json
