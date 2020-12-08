@@ -29,5 +29,6 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: qodana-results
+          if-no-files-found: error
           path: |
             qodana/report/results
