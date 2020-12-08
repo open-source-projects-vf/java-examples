@@ -15,20 +15,27 @@ jobs:
       - name: Run Code Inspection
         run: docker run -v  ${GITHUB_WORKSPACE}:/data/project -v ${GITHUB_WORKSPACE}/qodana:/data/results jetbrains/qodana:2020.3-eap --save-report
         
-      - name: Bash
-        run: |
-         echo $GITHUB_WORKSPACE
-         echo --------------------------------
-         ls $GITHUB_WORKSPACE/
-         echo --------------------------------
-         ls $GITHUB_WORKSPACE/qodana/
-         echo --------------------------------
-         ls ${GITHUB_WORKSPACE}/qodana/report/results
-        
       - name: Archive qodana results
         uses: actions/upload-artifact@v2
         with:
           name: qodana-results
           if-no-files-found: error
-          path: |
-            qodana/report/results
+          path: qodana/report/results
+         
+      - name: Qodana results
+        run: |
+         echo "Qodana - Code Inspection has finished successfully!"
+         echo "Download an artifact qodana-results.zip. Code Inspection results are part of file result-allProblems.json."
+         cat ${GITHUB_WORKSPACE}/qodana/report/results/result-allProblems.json
+         
+      - uses: actions/upload-artifact@v2
+        if: failure()
+        with:
+          name: qodana-error-logs
+          path: qodana
+        
+      - name: Bash
+        if: failure()
+        run: |
+         echo "Qodana - Code Inspection has failed"
+         echo "You could contact our support team at qodana-support@jetbrains.com. Please attach qodana-error-logs.zip to your message."
