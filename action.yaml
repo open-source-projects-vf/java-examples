@@ -3,5 +3,3 @@ name: 'Test - code inspection'
 runs: 
   using: 'docker'
   image: 'docker://jetbrains/qodana:2020.3-eap'
-  with:
-    args: -v ${GITHUB_WORKSPACE}:/data/project -v ${GITHUB_WORKSPACE}/qodana:/data/results --save-report
