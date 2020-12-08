@@ -14,6 +14,8 @@ jobs:
       
       - name: Qodana - Code Inspection
         uses:  a-kuznetsova/java-examples@v1.3
+        with:
+          args: -v ${GITHUB_WORKSPACE}:/data/project -v ${GITHUB_WORKSPACE}/qodana:/data/results --save-report
       
       - name: Archive results
         uses: actions/upload-artifact@v2
