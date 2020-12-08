@@ -1,5 +1,7 @@
 name: 'Test - code inspection'
 
-runs: 
-  using: 'docker'
-  image: 'docker://jetbrains/qodana:2020.3-eap'
+runs:
+  using: "composite"
+  steps:
+    - run: docker run -v ${GITHUB_WORKSPACE}:/data/project -v ${GITHUB_WORKSPACE}/qodana:/data/results jetbrains/qodana:2020.3-eap --save-report
+      shell: sh
