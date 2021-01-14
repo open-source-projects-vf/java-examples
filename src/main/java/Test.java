@@ -8,7 +8,7 @@ public class Test {
     }
 
     static void show(boolean[][] world) {
-        System.out.println(Arrays.toString(world));
+        System.out.println("show()");
     }
 
     public static void main(String[] args) {
