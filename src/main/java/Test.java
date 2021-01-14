@@ -8,12 +8,11 @@ public class Test {
     }
 
     static void show(boolean[][] world) {
-        System.out.println(Arrays.toString(world));
+        System.out.println("show()");
     }
 
     public static void main(String[] args) {
         boolean[][] world = gen();
-        System.out.println();
         Scanner s = new Scanner(System.in);
         while (s.nextLine().length() == 0) {
             System.out.println();
