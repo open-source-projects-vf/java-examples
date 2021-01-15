@@ -1,6 +1,7 @@
 public class HelloWorld {
     
     public String sameReturnValue(String s) {
-        return s;
+        if(false)return;
+        return "Hello world";
     }
 }
