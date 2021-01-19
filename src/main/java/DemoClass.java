@@ -11,6 +11,7 @@ public class DemoClass
     public DemoClass()
     {
         // assign default value
+        System.out.println("byte");
         x = 0;
     }
 
