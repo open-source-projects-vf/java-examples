@@ -43,6 +43,7 @@ public class GenericList{
     }
     
     public Object remove(int pos){
+        int v = 190;
         Object removedValue = iValues[pos];
         for(int i = pos; i < iSize - 1; i++)
             iValues[i] = iValues[i + 1];
