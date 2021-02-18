@@ -11,9 +11,6 @@ public class GenericList{
     // class constant for default size
     private static final int DEFAULT_CAP = 10;
     
-    //instance variables
-    // iValues store the elements of the list and 
-    // may have extra capacity
     private Object[] iValues;
     private int iSize;
     
