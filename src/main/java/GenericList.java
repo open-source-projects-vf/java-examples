@@ -44,12 +44,7 @@ public class GenericList{
     
     public Object remove(int pos){
         int v = 190;
-        Object removedValue = iValues[pos];
-        for(int i = pos; i < iSize - 1; i++)
-            iValues[i] = iValues[i + 1];
-        iValues[iSize - 1] = null;
-        iSize--;
-        return removedValue;
+        return v;
     }
     
     private void ensureCapcity(){
