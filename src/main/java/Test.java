@@ -15,6 +15,9 @@ public class Test {
         boolean[][] world = gen();
         System.out.println();
         System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
         System.out.println("hello");
         Scanner s = new Scanner(System.in);
         while (s.nextLine().length() == 0) {
