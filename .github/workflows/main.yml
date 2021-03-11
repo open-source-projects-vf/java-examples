@@ -13,7 +13,7 @@ jobs:
       - name: Cache Qodana dependencies
         uses: actions/cache@v2
         with:
-          path: ~/work/_temp/_github_home/cache
+          path: ~/work/_temp/_github_home/qodana-cache
           key: ${{ runner.os }}-qodana-${{ github.ref }}
           restore-keys: |
             ${{ runner.os }}-qodana-${{ github.ref }}
