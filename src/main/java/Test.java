@@ -6,6 +6,10 @@ public class Test {
     static boolean[][] gen() {
         return new boolean[3][1];
     }
+    
+    static boolean[][] genB() {
+        return new boolean[10][1];
+    }
 
     static void show(boolean[][] world) {
         System.out.println(Arrays.toString(world));
