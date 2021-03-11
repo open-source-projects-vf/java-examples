@@ -8,6 +8,7 @@ public class WriteToFile
 {	public static void main(String[] args)
 	{	try
 		{	PrintStream writer = new PrintStream( new File("randInts.txt"));
+		 	PrintStream writer2 = new PrintStream( new File("randInts.txt"));
 			Random r = new Random();
 			final int LIMIT = 100;
 
