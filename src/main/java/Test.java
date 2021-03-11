@@ -10,6 +10,10 @@ public class Test {
     static void show(boolean[][] world) {
         System.out.println(Arrays.toString(world));
     }
+    
+    static void show(int[][] world) {
+        System.out.println(Arrays.toString(world));
+    }
 
     public static void main(String[] args) {
         boolean[][] world = gen();
