@@ -4,7 +4,7 @@ inputs:
   project-dir:
     description: 'Project folder to inspect'
     required: false
-    default: $GITHUB_WORKFLOW
+    default: ${{ github.workspace }}
   results-dir:
     description: 'Save results to folder'
     required: false
