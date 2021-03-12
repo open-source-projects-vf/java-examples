@@ -30,3 +30,7 @@ jobs:
           name: qodana-results
           if-no-files-found: error
           path: qodana-report/results
+          
+      - name: Print results
+        run: |
+          ls -lh ~/work/_temp/_github_home/
