@@ -9,11 +9,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-#       - shell: bash
-#         run: |
-#           echo ${{ env.GITHUB_WORKSPACE }}
-#           echo ${{ env.HOME }}
-#           pwd
+      
+      - name: Print context
+        run: |
+          echo "$GITHUB_WORKSPACE"
+          echo "$HOME"
+          echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
+          echo "github.workspace = ${{ github.workspace }}"
+          echo "$GITHUB_CONTEXT"
 
       - name: Cache Qodana dependencies
         uses: actions/cache@v2
