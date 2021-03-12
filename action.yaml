@@ -1,7 +1,28 @@
-name: 'Test - code inspection'
+name: 'test'
 
+inputs:
+  project-dir:
+    description: 'Project folder to inspect'
+    required: false
+    default: ${{ env.GITHUB_WORKSPACE }}
+  results-dir:
+    description: 'Save results to folder'
+    required: false
+    default: "${{ env.GITHUB_WORKSPACE }}/qodana"
+  report-dir:
+    description: 'Save html report to folder'
+    required: false
+    default: "${{ env.GITHUB_WORKSPACE }}/report"
+  cache-dir:
+    description: 'Save cache to folder'
+    required: false
+    default: "${{ env.HOME }}/qodana-cache"
 runs:
-  using: "composite"
-  steps:
-    - run: docker run -v ${GITHUB_WORKSPACE}:/data/project -v ${GITHUB_WORKSPACE}/qodana:/data/results jetbrains/qodana:2020.3-eap --save-report
-      shell: sh
+  using: 'docker'
+  image: 'docker://jetbrains/qodana:latest'
+  args:
+    - --project-dir=${{inputs.project-dir}}
+    - --results-dir=${{inputs.results-dir}}
+    - --report-dir=${{inputs.report-dir}}
+    - --cache-dir=${{inputs.cache-dir}}
+    - --save-report
