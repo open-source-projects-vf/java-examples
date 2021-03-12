@@ -2,19 +2,19 @@ name: 'test'
 
 inputs:
   project-dir:
-    description: 'Project folder to inspect'
+    description: 'Project folder to inspect (default ${{env.GITHUB_WORKSPACE}})'
     required: false
     default: '/github/workspace'
   results-dir:
-    description: 'Save results to folder'
+    description: 'Save results to folder (default ${{env.GITHUB_WORKSPACE}}/qodana)'
     required: false
     default: '/github/workspace/qodana'
   report-dir:
-    description: 'Save html report to folder'
+    description: 'Save html report to folder (default ${{env.GITHUB_WORKSPACE}}/qodana-report)'
     required: false
-    default: '/github/workspace/report'
+    default: '/github/workspace/qodana-report'
   cache-dir:
-    description: 'Save cache to folder'
+    description: 'Save cache to folder (default ${{env.HOME}}/qodana-cache)'
     required: false
     default: '/github/home/qodana-cache'
 runs:
