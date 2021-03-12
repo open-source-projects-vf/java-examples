@@ -33,12 +33,12 @@ jobs:
 
 #       - name: Archive results
 #         uses: actions/upload-artifact@v2
-        with:
-          name: qodana-results
-          if-no-files-found: error
-          path: report/results
+#         with:
+#           name: qodana-results
+#           if-no-files-found: error
+#           path: report/results
 
-      - name: Print error message
-        if: failure()
-        run: |
-          echo "Qodana - has failed. Please contact our support team by email at qodana-support@jetbrains.com. Attach qodana-error-logs.zip to your message."
+#       - name: Print error message
+#         if: failure()
+#         run: |
+#           echo "Qodana - has failed. Please contact our support team by email at qodana-support@jetbrains.com. Attach qodana-error-logs.zip to your message."
