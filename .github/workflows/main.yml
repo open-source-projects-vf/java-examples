@@ -17,6 +17,8 @@ jobs:
           echo "${{env.GITHUB_WORKSPACE}}"
           ls -lh ${{env.GITHUB_WORKSPACE}}/
           ls -lh ${{env.HOME}}/
+          ls -lh $GITHUB_WORKSPACE
+          ls -lh $HOME
           echo "${{env.HOME}}"
           echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
           echo "github.workspace = ${{ github.workspace }}"
