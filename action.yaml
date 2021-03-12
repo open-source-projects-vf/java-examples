@@ -4,19 +4,19 @@ inputs:
   project-dir:
     description: 'Project folder to inspect'
     required: false
-    default: ${{ env.GITHUB_WORKSPACE }}
+    default: '/github/workspace'
   results-dir:
     description: 'Save results to folder'
     required: false
-    default: "${{ env.GITHUB_WORKSPACE }}/qodana"
+    default: '/github/workspace/qodana'
   report-dir:
     description: 'Save html report to folder'
     required: false
-    default: "${{ env.GITHUB_WORKSPACE }}/report"
+    default: '/github/workspace/report'
   cache-dir:
     description: 'Save cache to folder'
     required: false
-    default: "${{ env.HOME }}/qodana-cache"
+    default: '/github/home/qodana-cache'
 runs:
   using: 'docker'
   image: 'docker://jetbrains/qodana:latest'
