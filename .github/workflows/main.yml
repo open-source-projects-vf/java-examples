@@ -10,14 +10,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: brr
+        run: |
+          pwd
+          ls -lh .
       - name: Cache Qodana dependencies
         uses: actions/cache@v2
         with:
-          path: ~/work/_temp/_github_home/cache
-          key: ${{ runner.os }}-qodana-test2HomeDir-${{ github.ref }}
+          path: /cache
+          key: ${{ runner.os }}-qodana-test2HomeDir3-${{ github.ref }}
           restore-keys: |
-            ${{ runner.os }}-qodana-test2HomeDir-${{ github.ref }}
-            ${{ runner.os }}-qodana-test2HomeDir-
+            ${{ runner.os }}-qodana-test2HomeDir3-${{ github.ref }}
+            ${{ runner.os }}-qodana-test2HomeDir3-
 
       - name: Qodana - Code Inspection
         uses:  a-kuznetsova/java-examples@2021.6
@@ -33,5 +37,7 @@ jobs:
           
       - name: Print results
         run: |
+          pwd
+          ls -lh
           ls -lh ~/work/_temp/_github_home/
           ls -lh ~/work/_temp/_github_home/cache/
