@@ -20,19 +20,19 @@ jobs:
           echo "github.workspace = ${{ github.workspace }}"
           echo "$GITHUB_CONTEXT"
 
-      - name: Cache Qodana dependencies
-        uses: actions/cache@v2
-        with:
-          path: ${{ env.HOME }}/qodana-cache
-          key: ${{ runner.os }}-qodana-${{ github.ref }}
-          restore-keys: |
-            ${{ runner.os }}-qodana-${{ github.ref }}
-            ${{ runner.os }}-qodana-
-      - name: Qodana - Code Inspection
-        uses: a-kuznetsova/java-examples@v2021
+#       - name: Cache Qodana dependencies
+#         uses: actions/cache@v2
+#         with:
+#           path: ${{ env.HOME }}/qodana-cache
+#           key: ${{ runner.os }}-qodana-${{ github.ref }}
+#           restore-keys: |
+#             ${{ runner.os }}-qodana-${{ github.ref }}
+#             ${{ runner.os }}-qodana-
+#       - name: Qodana - Code Inspection
+#         uses: a-kuznetsova/java-examples@v2021
 
-      - name: Archive results
-        uses: actions/upload-artifact@v2
+#       - name: Archive results
+#         uses: actions/upload-artifact@v2
         with:
           name: qodana-results
           if-no-files-found: error
