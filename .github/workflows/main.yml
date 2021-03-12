@@ -20,7 +20,7 @@ jobs:
             ${{ runner.os }}-qodana-
 
       - name: Qodana - Code Inspection
-        uses:  a-kuznetsova/java-examples@v2021.5
+        uses:  a-kuznetsova/java-examples@2021.5
 
       - name: Archive results
         uses: actions/upload-artifact@v2
