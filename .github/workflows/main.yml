@@ -27,4 +27,4 @@ jobs:
         with:
           name: qodana-results
           if-no-files-found: error
-          path: qodana/results
+          path: qodana-report/results
