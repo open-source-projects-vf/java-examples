@@ -34,3 +34,4 @@ jobs:
       - name: Print results
         run: |
           ls -lh ~/work/_temp/_github_home/
+          ls -lh ~/work/_temp/_github_home/cache/
