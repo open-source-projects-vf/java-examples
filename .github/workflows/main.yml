@@ -13,7 +13,7 @@ jobs:
       - name: Cache Qodana dependencies
         uses: actions/cache@v2
         with:
-          path: ${{ HOME }}/qodana-cache
+          path: ${{ env.HOME }}/qodana-cache
           key: ${{ runner.os }}-qodana-${{ github.ref }}
           restore-keys: |
             ${{ runner.os }}-qodana-${{ github.ref }}
@@ -21,7 +21,7 @@ jobs:
       - name: Qodana - Code Inspection
         uses: JetBrains/qodana-action@v2.0-eap
         with:
-          cache-dir: ${{ HOME }}/qodana-cache
+          cache-dir: ${{ env.HOME }}/qodana-cache
 
       - name: Archive results
         uses: actions/upload-artifact@v2
