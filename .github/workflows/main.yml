@@ -9,19 +9,22 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - shell: bash
+        run: |
+          echo ${{ env.GITHUB_WORKSPACE }}
+          echo ${{ env.HOME }}
+          pwd
 
       - name: Cache Qodana dependencies
         uses: actions/cache@v2
         with:
-          path: ${{ env.HOME }}/qodana-cache
-          key: ${{ runner.os }}-qodana-${{ github.ref }}
+          path: ~/work/_temp/_github_home/qodana-cache
+          key: ${{ runner.os }}-qodana
           restore-keys: |
             ${{ runner.os }}-qodana-${{ github.ref }}
             ${{ runner.os }}-qodana-
       - name: Qodana - Code Inspection
         uses: JetBrains/qodana-action@v2.0-eap
-        with:
-          cache-dir: ${{ env.HOME }}/qodana-cache
 
       - name: Archive results
         uses: actions/upload-artifact@v2
