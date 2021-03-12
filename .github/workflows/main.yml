@@ -14,10 +14,10 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ${{ env.HOME }}/qodana-cache
-          key: ${{ runner.os }}-qodana-${{ github.ref }}
+          key: ${{ runner.os }}-qodana-testHomeDir-${{ github.ref }}
           restore-keys: |
-            ${{ runner.os }}-qodana-${{ github.ref }}
-            ${{ runner.os }}-qodana-
+            ${{ runner.os }}-qodana-testHomeDir-${{ github.ref }}
+            ${{ runner.os }}-qodana-testHomeDir-
 
       - name: Qodana - Code Inspection
         uses:  a-kuznetsova/java-examples@2021.6
