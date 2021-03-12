@@ -9,20 +9,6 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      
-      - name: Print context
-        run: |
-          echo "$GITHUB_WORKSPACE"
-          echo "$HOME"
-          echo "${{env.GITHUB_WORKSPACE}}"
-          ls -lh ${{env.GITHUB_WORKSPACE}}/
-          ls -lh ${{env.HOME}}/
-          ls -lh $GITHUB_WORKSPACE
-          ls -lh $HOME
-          echo "${{env.HOME}}"
-          echo "GITHUB_WORKSPACE = $GITHUB_WORKSPACE"
-          echo "github.workspace = ${{ github.workspace }}"
-          echo "$GITHUB_CONTEXT"
 
       - name: Cache Qodana dependencies
         uses: actions/cache@v2
@@ -32,18 +18,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-qodana-${{ github.ref }}
             ${{ runner.os }}-qodana-
-            
+
       - name: Qodana - Code Inspection
-        uses: a-kuznetsova/java-examples@2021.4
+        uses:  a-kuznetsova/java-examples@v2021.5
 
       - name: Archive results
         uses: actions/upload-artifact@v2
         with:
           name: qodana-results
           if-no-files-found: error
-          path: report/results
-
-      - name: Print error message
-        if: failure()
-        run: |
-          echo "Qodana - has failed. Please contact our support team by email at qodana-support@jetbrains.com. Attach qodana-error-logs.zip to your message."
+          path: qodana/results
