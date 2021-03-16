@@ -11,13 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Create dirs
-        run: |
-          mkdir -p  /home/runner/work/qodana-cache ${{ github.workspace }}/qodana
-          ls -lh ${{ github.workspace }}/
-          ls -lh  /home/runner/work/qodana-cache/
-        
   
       - name: Cache Qodana dependencies
         uses: actions/cache@v2
@@ -36,7 +29,7 @@ jobs:
           ls -lh  /home/runner/work/qodana-cache/
           
       - name: Run Qodana
-        run: docker run -u $(id -u) -v ${{ github.workspace }}:/data/project -v ${{ github.workspace }}/qodana:/data/results -v  /home/runner/work/qodana-cache:/data/cache/ jetbrains/qodana:latest "--save-report"
+        uses: a-kuznetsova/java-examples@2021.8
         
       - run: |
           ls -lh ${{ github.workspace }}/qodana/
