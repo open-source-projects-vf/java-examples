@@ -1,6 +1,9 @@
 name: Qodana - Code Inspection
 
 on:
+  push:
+    branches:
+    - main
   workflow_dispatch:
 
 jobs:
@@ -10,34 +13,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: brr
-        run: |
-          pwd
-          ls -lh .
       - name: Cache Qodana dependencies
         uses: actions/cache@v2
         with:
-          path: /cache
+          path: $HOME/cache
           key: ${{ runner.os }}-qodana-test2HomeDir3-${{ github.ref }}
           restore-keys: |
             ${{ runner.os }}-qodana-test2HomeDir3-${{ github.ref }}
             ${{ runner.os }}-qodana-test2HomeDir3-
 
       - name: Qodana - Code Inspection
-        uses:  a-kuznetsova/java-examples@2021.6
-        with:
-          cache-dir: /github/home/cache
-
-      - name: Archive results
-        uses: actions/upload-artifact@v2
-        with:
-          name: qodana-results
-          if-no-files-found: error
-          path: qodana-report/results
-          
-      - name: Print results
-        run: |
-          pwd
-          ls -lh
-          ls -lh ~/work/_temp/_github_home/
-          ls -lh ~/work/_temp/_github_home/cache/
+        uses:  a-kuznetsova/java-examples@2021.7
