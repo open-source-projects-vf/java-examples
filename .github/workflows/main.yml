@@ -16,18 +16,21 @@ jobs:
       - name: Cache Qodana dependencies
         uses: actions/cache@v2
         with:
-          path: $HOME/cache
-          key: ${{ runner.os }}-qodana-test2HomeDir3-${{ github.ref }}
+          path: ~/qodana-cache
+          key: ${{ runner.os }}-qodana-cache-${{ github.ref }}
           restore-keys: |
-            ${{ runner.os }}-qodana-test2HomeDir3-${{ github.ref }}
-            ${{ runner.os }}-qodana-test2HomeDir3-
-      - run: ls -lh $HOME/cache/
+            ${{ runner.os }}-qodana-cache-${{ github.ref }}
+            ${{ runner.os }}-qodana-cache-
+            
+      - run: ls -lh ~/qodana-cache/
 
-#       - name: Qodana - Code Inspection
-#         uses:  a-kuznetsova/java-examples@2021.7
+      - name: Qodana - Code Inspection
+        uses:  a-kuznetsova/java-examples@2021.7
+        with:
+          cache-dir: ~/qodana-cache
         
-#       - name: Archive error logs
-#         uses: actions/upload-artifact@v2
-#         with:
-#           name: qodana-logs
-#           path: $HOME/cache
+      - name: Archive error logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: qodana-logs
+          path: $HOME/cache
