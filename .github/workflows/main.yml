@@ -24,3 +24,9 @@ jobs:
 
       - name: Qodana - Code Inspection
         uses:  a-kuznetsova/java-examples@2021.7
+        
+      - name: Archive error logs
+        uses: actions/upload-artifact@v2
+        with:
+          name: qodana-logs
+          path: $HOME/cache
