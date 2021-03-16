@@ -22,7 +22,10 @@ jobs:
             ${{ runner.os }}-qodana-cache-${{ github.ref }}
             ${{ runner.os }}-qodana-cache-
             
-      - run: ls -lh ~/qodana-cache/
+      - run:  |
+          if [ -d "~/qodana-cache/" ]; then
+            ls -lh ~/qodana-cache/
+          fi
 
       - name: Qodana - Code Inspection
         uses:  a-kuznetsova/java-examples@2021.7
