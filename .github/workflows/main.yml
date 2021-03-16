@@ -21,12 +21,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-qodana-test2HomeDir3-${{ github.ref }}
             ${{ runner.os }}-qodana-test2HomeDir3-
+      - run: ls -lh $HOME/cache/
 
-      - name: Qodana - Code Inspection
-        uses:  a-kuznetsova/java-examples@2021.7
+#       - name: Qodana - Code Inspection
+#         uses:  a-kuznetsova/java-examples@2021.7
         
-      - name: Archive error logs
-        uses: actions/upload-artifact@v2
-        with:
-          name: qodana-logs
-          path: $HOME/cache
+#       - name: Archive error logs
+#         uses: actions/upload-artifact@v2
+#         with:
+#           name: qodana-logs
+#           path: $HOME/cache
