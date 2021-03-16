@@ -1,4 +1,4 @@
-name: Qodana - Code Inspection
+name: Test home
 
 on:
   push:
@@ -9,35 +9,37 @@ on:
 jobs:
   code_inspection:
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
 
+      - name: Create dirs
+        run: |
+          mkdir -p  /home/runner/work/qodana-cache ${{ github.workspace }}/qodana
+          ls -lh ${{ github.workspace }}/
+          ls -lh  /home/runner/work/qodana-cache/
+        
+  
       - name: Cache Qodana dependencies
         uses: actions/cache@v2
         with:
-          path: ${{ github.workspace }}/qodana-cache
-          key: ${{ runner.os }}-qodana-cache2-${{ github.ref }}
+          path: /home/runner/work/qodana-cache
+          key: ${{ runner.os }}-qodana-${{ github.ref }}
           restore-keys: |
-            ${{ runner.os }}-qodana-cache2-${{ github.ref }}
-            ${{ runner.os }}-qodana-cache2-
-
-
-      - name: Qodana - Code Inspection
-        uses:  a-kuznetsova/java-examples@2021.7
-        with:
-          cache-dir:  ${{ github.workspace }}/qodana-cache
-      
-                  
-      - run:  |
-          echo  ${{ github.workspace }}
-          if [ -d "${{ github.workspace }}/qodana-cache" ]; then
-            ls -lh  ${{ github.workspace }}/qodana-cache
-            chown -R $(id -u) ${{ github.workspace }}/qodana-cache
-          fi
+            ${{ runner.os }}-qodana-${{ github.ref }}
+            ${{ runner.os }}-qodana-
+            
+      - name: Echo
+        run: |
+          echo "workspace"
+          ls -lh ${{ github.workspace }}/
+          echo "qodana-cache"
+          ls -lh  /home/runner/work/qodana-cache/
           
-      - name: Archive error logs
-        uses: actions/upload-artifact@v2
-        with:
-          name: qodana-logs
-          path: ${{ env.GITHUB_WORKSPACE }}/qodana-cache
+      - name: Run Qodana
+        run: docker run -u $(id -u) -v ${{ github.workspace }}:/data/project -v ${{ github.workspace }}/qodana:/data/results -v  /home/runner/work/qodana-cache:/data/cache/ jetbrains/qodana:latest "--save-report"
+        
+      - run: |
+          ls -lh ${{ github.workspace }}/qodana/
+          ls -lR  /home/runner/work/qodana-cache/
+      
+          
