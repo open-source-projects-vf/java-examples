@@ -16,9 +16,9 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: mkdir -p ${{inputs.cache-dir}} ${{inputs.results-dir}}
+    - run: mkdir -p ${{inputs.cache-dir}} ${{inputs.results-dir}} ${{inputs.results-dir}}/log
       shell: bash
-    - run: chown -R $(id -u) ${{inputs.cache-dir}} ${{inputs.results-dir}}
-      shell: bash
+#     - run: chown -R $(id -u) ${{inputs.cache-dir}} ${{inputs.results-dir}}
+#       shell: bash
     - run: docker run -u $(id -u) -v ${{inputs.project-dir}}:/data/project -v ${{inputs.results-dir}}/qodana:/data/results -v  ${{inputs.cache-dir}}:/data/cache/ jetbrains/qodana:latest "--save-report"
       shell: bash
