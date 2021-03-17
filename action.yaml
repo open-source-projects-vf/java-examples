@@ -16,7 +16,7 @@ inputs:
 runs:
   using: 'composite'
   steps:
-    - run: mkdir -p ${{inputs.cache-dir}} ${{inputs.results-dir}} ${{inputs.results-dir}}/log
+    - run: mkdir -p ${{inputs.cache-dir}} ${{inputs.results-dir}} # ${{inputs.results-dir}}/log
       shell: bash
     - run: echo "workspace=${{ github.workspace }}" ; ls -la ${{ github.workspace }}/ ; echo "qodana-cache" ; ls -la  /home/runner/work/qodana-cache/ ; echo "qodana" ; ls -laR ${{ github.workspace }}/qodana/
       shell: bash
