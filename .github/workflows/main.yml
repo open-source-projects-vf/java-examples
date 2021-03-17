@@ -32,7 +32,7 @@ jobs:
           ls -la  /home/runner/work/qodana-cache/
 
       - name: Run Qodana
-        uses: a-kuznetsova/java-examples@2021.21
+        uses: a-kuznetsova/java-examples@2021.22
         with:
             results-dir: "/home/runner/work/qodana-results"
         
