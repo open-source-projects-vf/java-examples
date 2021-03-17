@@ -28,8 +28,6 @@ jobs:
           echo "uid=$(id --user)"
           echo "workspace=${{ github.workspace }}"
           ls -la ${{ github.workspace }}/
-          echo "qodana-cache"
-          ls -la  /home/runner/work/qodana-cache/
 
       - name: Run Qodana
         uses: a-kuznetsova/java-examples@2021.26
