@@ -27,8 +27,6 @@ jobs:
           ls -la ${{ github.workspace }}/
           echo "qodana-cache"
           ls -la  /home/runner/work/qodana-cache/
-          echo "qodana"
-          ls -laR ${{ github.workspace }}/qodana/
 
       - name: Run Qodana
         uses: a-kuznetsova/java-examples@2021.17
