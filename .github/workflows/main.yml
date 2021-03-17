@@ -33,9 +33,6 @@ jobs:
         uses: a-kuznetsova/java-examples@2021.26
         with:
             results-dir: "/home/runner/work/qodana-results"
-        
-      - run: |
-          ls -lh "/home/runner/work/qodana-results"
-          ls -lR  /home/runner/work/qodana-cache/
+
       
           
