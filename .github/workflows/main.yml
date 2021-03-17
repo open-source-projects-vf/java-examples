@@ -24,8 +24,8 @@ jobs:
       - name: Run Qodana
         uses: a-kuznetsova/java-examples@composite_2021.1
             
-      - name: Echo
-        run: ls -lh . #sudo chmod -R 555 /home/runner/work/qodana-cache
+      - name: Change permission
+        run: chmod -R 555 /home/runner/work/qodana-cache
 
       
           
