@@ -31,6 +31,8 @@ jobs:
 
       - name: Run Qodana
         uses: a-kuznetsova/java-examples@2021.19
+        with:
+            results-dir: "/home/runner/work/qodana-results"
         
       - run: |
           ls -lh ${{ github.workspace }}/qodana/
