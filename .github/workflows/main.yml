@@ -23,6 +23,7 @@ jobs:
             
       - name: Echo
         run: |
+          echo "uid=$(id --user)"
           echo "workspace=${{ github.workspace }}"
           ls -la ${{ github.workspace }}/
           echo "qodana-cache"
