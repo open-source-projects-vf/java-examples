@@ -20,19 +20,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-qodana-cache-${{ github.ref }}
             ${{ runner.os }}-qodana-cache-
-            
-      - name: Echo
-        run: |
-          echo "id"
-          id
-          echo "uid=$(id --user)"
-          echo "workspace=${{ github.workspace }}"
-          ls -la ${{ github.workspace }}/
 
       - name: Run Qodana
         uses: a-kuznetsova/java-examples@2021.26
         with:
             results-dir: "/home/runner/work/qodana-results"
+            
+      - name: Echo
+        run: sudo chmod -R 777 /home/runner/work/qodana-cache
 
       
           
