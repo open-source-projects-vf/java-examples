@@ -23,6 +23,8 @@ jobs:
 
       - name: Run Qodana
         uses: a-kuznetsova/java-examples@2021.100
+        with:
+          cache-dir: /home/runner/work/qodana-cache
             
       - name: Echo
         run: sudo chmod -R 555 /home/runner/work/qodana-cache
