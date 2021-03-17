@@ -37,7 +37,7 @@ jobs:
             results-dir: "/home/runner/work/qodana-results"
         
       - run: |
-          ls -lh ${{ github.workspace }}/qodana/
+          ls -lh "/home/runner/work/qodana-results"
           ls -lR  /home/runner/work/qodana-cache/
       
           
