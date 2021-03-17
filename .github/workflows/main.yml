@@ -20,16 +20,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-qodana-cache-test3-${{ github.ref }}
             ${{ runner.os }}-qodana-cache-test3-
-
-      - run: mkdir -p /home/runner/work/qodana-cache
       
       - name: Run Qodana
-        uses: a-kuznetsova/java-examples@2021.100
-        with:
-          cache-dir: /home/runner/work/qodana-cache
+        uses: a-kuznetsova/java-examples@composite_2021.1
             
-#       - name: Echo
-#         run: sudo chmod -R 555 /home/runner/work/qodana-cache
+      - name: Echo
+        run: ls -lh . #sudo chmod -R 555 /home/runner/work/qodana-cache
 
       
           
