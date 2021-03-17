@@ -27,7 +27,7 @@ jobs:
             results-dir: "/home/runner/work/qodana-results"
             
       - name: Echo
-        run: sudo chmod -R 551 /home/runner/work/qodana-cache
+        run: sudo chmod -R 555 /home/runner/work/qodana-cache
 
       
           
