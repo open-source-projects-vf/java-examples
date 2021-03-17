@@ -23,11 +23,13 @@ jobs:
             
       - name: Echo
         run: |
-          echo "workspace"
-          ls -lh ${{ github.workspace }}/
+          echo "workspace=${{ github.workspace }}"
+          ls -la ${{ github.workspace }}/
           echo "qodana-cache"
-          ls -lh  /home/runner/work/qodana-cache/
-          
+          ls -la  /home/runner/work/qodana-cache/
+          echo "qodana"
+          ls -laR ${{ github.workspace }}/qodana/
+
       - name: Run Qodana
         uses: a-kuznetsova/java-examples@2021.17
         
