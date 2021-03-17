@@ -18,9 +18,9 @@ runs:
   steps:
     - run: mkdir -p ${{inputs.cache-dir}} ${{inputs.results-dir}} # ${{inputs.results-dir}}/log
       shell: bash
-    - run: sudo chown -R $(id -u) ${{inputs.cache-dir}} ${{inputs.results-dir}}
+    - run: sudo chown -R $(id -g) ${{inputs.cache-dir}} ${{inputs.results-dir}}
       shell: bash
     - run: echo "workspace=${{ github.workspace }}" ; ls -la ${{ github.workspace }}/ ; echo "qodana-cache" ; ls -la  ${{inputs.cache-dir}} ; echo "qodana" ; ls -laR ${{inputs.results-dir}}
       shell: bash
-    - run: docker run -u $(id -u) -v ${{inputs.project-dir}}:/data/project -v ${{inputs.results-dir}}/qodana:/data/results -v  ${{inputs.cache-dir}}:/data/cache/ jetbrains/qodana:latest "--save-report"
+    - run: docker run -u $(id -u):$(id -g) -v ${{inputs.project-dir}}:/data/project -v ${{inputs.results-dir}}/qodana:/data/results -v  ${{inputs.cache-dir}}:/data/cache/ jetbrains/qodana:latest "--save-report"
       shell: bash
