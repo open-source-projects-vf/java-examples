@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-  
+      
       - name: Cache Qodana dependencies
         uses: actions/cache@v2
         with:
@@ -21,6 +21,8 @@ jobs:
             ${{ runner.os }}-qodana-cache-2021.100-${{ github.ref }}
             ${{ runner.os }}-qodana-cache-2021.100-
 
+      - run: mkdir -p /home/runner/work/qodana-cache
+      
       - name: Run Qodana
         uses: a-kuznetsova/java-examples@2021.100
         with:
