@@ -16,10 +16,10 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /home/runner/work/qodana-cache
-          key: ${{ runner.os }}-qodana-${{ github.ref }}
+          key: ${{ runner.os }}-qodana-cache-${{ github.ref }}
           restore-keys: |
-            ${{ runner.os }}-qodana-${{ github.ref }}
-            ${{ runner.os }}-qodana-
+            ${{ runner.os }}-qodana-cache-${{ github.ref }}
+            ${{ runner.os }}-qodana-cache-
             
       - name: Echo
         run: |
