@@ -25,7 +25,7 @@ jobs:
         uses: a-kuznetsova/java-examples@composite_2021.1
             
       - name: Change permission
-        run: chmod -R 555 /home/runner/work/qodana-cache
+        run: sudo chmod -R 555 /home/runner/work/qodana-cache
 
       
           
