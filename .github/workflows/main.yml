@@ -16,13 +16,12 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /home/runner/work/qodana-cache
-          key: ${{ runner.os }}-qodana-cache-test1_version-${{ github.ref }}
+          key: ${{ runner.os }}-qodana-cache-5874410cf209c5d42654e082b50abb939ccf87bd
           restore-keys: |
-            ${{ runner.os }}-qodana-cache-test1_version-${{ github.ref }}
-            ${{ runner.os }}-qodana-cache-test1_version-
+            ${{ runner.os }}-qodana-cache-5874410cf209c5d42654e082b50abb939ccf87bd
       
       - name: Run Qodana
-        uses: a-kuznetsova/java-examples@192c0d3faeb41bebf0a4ef9aa62ce2856f93b123
+        uses: a-kuznetsova/java-examples@5874410cf209c5d42654e082b50abb939ccf87bd
 
       
           
