@@ -20,5 +20,5 @@ runs:
 #       shell: bash
     - run: docker run -v ${{inputs.project-dir}}:/data/project -v ${{inputs.results-dir}}:/data/results -v ${{inputs.cache-dir}}:/data/cache jetbrains/qodana:2021.1-eap --save-report
       shell: bash
-    - run: sudo chmod 755 $(find ${{inputs.cache-dir}} -type d)
+    - run: sudo find ${{inputs.cache-dir}} -type d -exec chmod 755 {} +
       shell: bash
