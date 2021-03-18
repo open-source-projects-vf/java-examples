@@ -22,10 +22,7 @@ jobs:
             ${{ runner.os }}-qodana-cache-test23-
       
       - name: Run Qodana
-        uses: a-kuznetsova/java-examples@composite_2021.1
-            
-      - name: Change permission
-        run: sudo chmod -R 555 /home/runner/work/qodana-cache
+        uses: a-kuznetsova/java-examples@1
 
       
           
