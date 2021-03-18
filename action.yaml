@@ -18,7 +18,7 @@ runs:
   steps:
 #     - run: mkdir -p ${{inputs.cache-dir}} ${{inputs.results-dir}} 
 #       shell: bash
-    - run: docker run -v ${{inputs.project-dir}}:/data/project -v ${{inputs.results-dir}}:/data/results -v  ${{inputs.cache-dir}}:/data/cache jetbrains/qodana:2021.1-eap --save-report
+    - run: docker run -v ${{inputs.project-dir}}:/data/project -v ${{inputs.results-dir}}:/data/results -v ${{inputs.cache-dir}}:/data/cache jetbrains/qodana:2021.1-eap --save-report
       shell: bash
-    - run: chmod 755 $(find ${{inputs.cache-dir}} -type d)
+    - run: sudo chmod 755 $(find ${{inputs.cache-dir}} -type d)
       shell: bash
