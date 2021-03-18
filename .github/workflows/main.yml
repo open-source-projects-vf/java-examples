@@ -22,7 +22,7 @@ jobs:
             ${{ runner.os }}-qodana-cache-test1_version-
       
       - name: Run Qodana
-        uses: a-kuznetsova/java-examples@1
+        uses: a-kuznetsova/java-examples@192c0d3faeb41bebf0a4ef9aa62ce2856f93b123
 
       
           
