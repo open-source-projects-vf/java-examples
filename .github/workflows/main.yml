@@ -16,16 +16,16 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /home/runner/work/qodana-cache
-          key: ${{ runner.os }}-qodana-cache-test4564-${{ github.ref }}
+          key: ${{ runner.os }}-qodana-cache-test23-${{ github.ref }}
           restore-keys: |
-            ${{ runner.os }}-qodana-cache-test4564-${{ github.ref }}
-            ${{ runner.os }}-qodana-cache-test4564-
+            ${{ runner.os }}-qodana-cache-test23-${{ github.ref }}
+            ${{ runner.os }}-qodana-cache-test23-
       
       - name: Run Qodana
         uses: a-kuznetsova/java-examples@composite_2021.1
             
       - name: Change permission
-        run: sudo chmod -R a+rwx,u-w,g-w,o-w /home/runner/work/qodana-cache
+        run: sudo chmod -R 555 /home/runner/work/qodana-cache
 
       
           
