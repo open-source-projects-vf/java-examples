@@ -24,4 +24,6 @@ jobs:
         with:
           path: qodana
       - run: |
+          echo $(id -u)
+          echo $UID
           ls -lah ~/work/_temp/_github_home/qodana-cache
