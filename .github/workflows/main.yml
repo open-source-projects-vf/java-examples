@@ -13,17 +13,20 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions/cache@v2
         with:
-          path: ~/work/_temp/_github_home/qodana-cache
-          key: ${{ runner.os }}-qodana-test56330-${{ github.ref }}
+          path: /home/runner/work/qodana-cache
+          key: ${{ runner.os }}-qodana-test5633034-${{ github.ref }}
           restore-keys: |
-            ${{ runner.os }}-qodana-test56330-${{ github.ref }}
-            ${{ runner.os }}-qodana-test56330-
+            ${{ runner.os }}-qodana-test5633034-${{ github.ref }}
+            ${{ runner.os }}-qodana-test5633034-
             
       - uses: a-kuznetsova/java-examples@main
+        with:
+          cache-dir: /home/runner/work/qodana-cache
+          
       - uses: actions/upload-artifact@v2
         with:
           path: qodana
       - run: |
           echo $(id -u)
           echo $UID
-          ls -lah ~/work/_temp/_github_home/qodana-cache
+          ls -lah /home/runner/work/qodana-cache
