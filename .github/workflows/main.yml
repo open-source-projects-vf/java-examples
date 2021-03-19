@@ -20,9 +20,6 @@ jobs:
             ${{ runner.os }}-qodana-test5633034_test-
             
       - uses: a-kuznetsova/java-examples@main
-        with:
-          results-dir: /home/runner/work/java-examples/java-examples/results/qodana
-          cache-dir: /home/runner/work/qodana-cache
           
       - uses: actions/upload-artifact@v2
         with:
