@@ -13,6 +13,7 @@ public class Stopwatch
 	 start the stop watch.
 	*/
 	public void start(){
+		System.out.println("start()");
 		startTime = System.nanoTime();
 	}
 
