@@ -20,10 +20,10 @@ public class Stopwatch
 	/**
 	 stop the stop watch.
 	*/
-	public void stop()
-		
+	public void stop(){	
 		System.out.println("stop()");
-	{	stopTime = System.nanoTime();	}
+		stopTime = System.nanoTime();	
+	}
 
 	/**
 	elapsed time in seconds.
