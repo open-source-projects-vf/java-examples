@@ -17,6 +17,15 @@ public class Stopwatch
 		System.out.println("start()");
 		System.out.println("start()");
 		System.out.println("start()");
+		System.out.println("start()");
+		System.out.println("start()");
+		System.out.println("start()");
+		System.out.println("start()");
+		System.out.println("start()");
+		System.out.println("start()");
+		System.out.println("start()");
+		System.out.println("start()");
+		System.out.println("start()");
 		startTime = System.nanoTime();
 	}
 
