@@ -6,6 +6,7 @@ public class Stopwatch
 {
     private long startTime;
     private long stopTime;
+	private long unusedVariable;
 
     public static final double NANOS_PER_SEC = 1000000000.0;
 
