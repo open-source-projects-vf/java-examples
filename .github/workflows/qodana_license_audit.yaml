@@ -1,0 +1,40 @@
+name: Qodana - License Audit
+on:
+  workflow_dispatch:
+  push:
+jobs:
+  qodana:
+    runs-on: ubuntu-latest
+    steps:
+      # clone your project
+      # - uses: actions/checkout@v2
+      # or clone any other project
+      - uses: actions/checkout@v2
+        with:
+          repository: jetbrains-research/buckwheat
+#       # run qodana-license-audit
+#       - name: Qodana - License Audit
+#         uses: jetbrains/qodana-license-audit-action@main
+#         with:
+#           options: PYTHON_VERSION=3.7.10
+#       - uses: actions/upload-artifact@v2
+#         with:
+#           path: ${{ github.workspace }}/qodana
+#       - name: Deploy to GitHub Pages
+#         uses: peaceiris/actions-gh-pages@v3
+#         with:
+#           github_token: ${{ secrets.GITHUB_TOKEN }}
+#           publish_dir: ${{ github.workspace }}/qodana/report
+#           destination_dir: ./
+
+      - name: Create status check
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BUILD_COMMIT=$GITHUB_SHA
+          curl \
+          -X POST \
+          -H "Authorization: Bearer $GITHUB_TOKEN" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/repos/a-kuznetsova/Qodana-examples-private/check-runs \
+          -d '{"name":"Qodana - License Audit", "head_sha": "'"$BUILD_COMMIT"'", "status": "completed", "conclusion": "action_required", "output" : {"title" : "Qodana - License Audit", "summary": "4 problems detected", "images" : [{"alt" : "result", "image_url" : "https://i.ibb.co/6BywCtF/Screenshot-2021-08-09-at-14-04-52.png" }]} }'
