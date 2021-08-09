@@ -36,5 +36,6 @@ jobs:
           -X POST \
           -H "Authorization: Bearer $GITHUB_TOKEN" \
           -H "Accept: application/vnd.github.v3+json" \
-          https://api.github.com/repos/a-kuznetsova/Qodana-examples-private/check-runs \
+          https://api.github.com/repos/$GITHUB_REPOSITORY/check-runs \
           -d '{"name":"Qodana - License Audit", "head_sha": "'"$BUILD_COMMIT"'", "status": "completed", "conclusion": "action_required", "output" : {"title" : "Qodana - License Audit", "summary": "4 problems detected", "images" : [{"alt" : "result", "image_url" : "https://i.ibb.co/6BywCtF/Screenshot-2021-08-09-at-14-04-52.png" }]} }'
+
