@@ -1,0 +1,19 @@
+version: 1.0
+profile:
+  name: qodana.recommended
+inspections:
+  LicenseAudit:
+    rules:
+      - key:
+          - "PROPRIETARY-LICENSE"
+          - "MIT"
+        prohibited:
+          - "Apache-2.0"
+        allowed:
+          - "MIT"
+          - "BSD-3-Clause"
+          - "ISC"
+
+      - key: "Apache-2.0"
+        prohibited:
+          - "MIT"
