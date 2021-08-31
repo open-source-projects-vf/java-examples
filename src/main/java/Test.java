@@ -18,6 +18,7 @@ public class Test {
     static void show(int[][] world) {
         System.out.println(Arrays.toString(world));
         System.out.println(Arrays.toString(world));
+        System.out.println(Arrays.toString(world));
     }
 
     public static void main(String[] args) {
