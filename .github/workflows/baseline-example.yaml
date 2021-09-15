@@ -26,7 +26,7 @@ jobs:
           ls -R ./
       
       - name: Qodana - Code Inspection
-        uses: JetBrains/qodana-action@v2.2-eap
+        uses: a-kuznetsova/Qodana-examples-private@main
           
 
       - uses: actions/upload-artifact@v2
