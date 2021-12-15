@@ -29,7 +29,7 @@ jobs:
         uses: JetBrains/qodana-action@v2.2-eap-fix
         with:
           fail-threshold: 1
-          baseline: ".github/workflows/baseline-short.sarif.json"
+          baseline-path: ".github/workflows/baseline-short.sarif.json"
           baseline-include-absent: true
           
 
