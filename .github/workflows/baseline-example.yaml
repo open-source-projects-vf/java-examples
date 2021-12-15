@@ -26,7 +26,7 @@ jobs:
           ls -R ./
       
       - name: Qodana - Code Inspection
-        uses: JetBrains/qodana-action@v2.2-eap-fix
+        uses:  tiulpin/qodana-action@main
         with:
           fail-threshold: 1
           baseline-path: ".github/workflows/baseline-short.sarif.json"
