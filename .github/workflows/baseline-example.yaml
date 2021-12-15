@@ -28,8 +28,7 @@ jobs:
       - name: Qodana - Code Inspection
         uses: JetBrains/qodana-action-eap@v1.1.3-eap
         with:
-          linter: "qodana-jvm"
-          fail-threshold: 1
+          linter: "qodana-jvm-android"
           baseline-path: ".github/workflows/baseline-short.sarif.json"
           baseline-include-absent: true
           
