@@ -9,30 +9,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Cache Qodana dependencies
-        uses: actions/cache@v2
-        with:
-          path: ~/work/_temp/_github_home/qodana-cache
-          key: ${{ runner.os }}-qodana-${{ github.ref }}
-          restore-keys: |
-            ${{ runner.os }}-qodana-${{ github.ref }}
-            ${{ runner.os }}-qodana-
-
-      - name: Show files
-        run: |
-          ls -l ./
-          echo "===="
-          ls -R ./
       
       - name: Qodana - Code Inspection
-        uses: JetBrains/qodana-action-eap@v1.1.3-eap
+        uses:  tiulpin/qodana-action@main
         with:
-          linter: "qodana-jvm-android"
           baseline-path: ".github/workflows/baseline-short.sarif.json"
           baseline-include-absent: true
-          
-
-      - uses: actions/upload-artifact@v2
-        with:
-          path: ${{ github.workspace }}/qodana
