@@ -25,4 +25,4 @@ jobs:
           name: Qodana failed
           conclusion: ${{ job.status }}
           output: |
-            {"summary":${{ steps.test.outputs.summary }}}
+            {"summary": "1 problem found" }
