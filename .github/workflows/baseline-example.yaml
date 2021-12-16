@@ -1,5 +1,4 @@
-name: Qodana - Code Inspection Example
-
+name: Qodana - Status check
 on:
   workflow_dispatch:
   pull_request:
@@ -18,3 +17,12 @@ jobs:
           baseline-path: ".github/workflows/baseline-short.sarif.json"
           baseline-include-absent: true
           fail-threshold: 1
+          
+      - uses: LouisBrunner/checks-action@v1.1.1
+        if: always()
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: Qodana failed
+          conclusion: ${{ job.status }}
+          output: |
+            {"summary":${{ steps.test.outputs.summary }}}
