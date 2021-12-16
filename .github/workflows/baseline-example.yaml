@@ -18,11 +18,11 @@ jobs:
           baseline-include-absent: true
           fail-threshold: 1
           
-      - uses: LouisBrunner/checks-action@v1.1.1
-        if: always()
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          name: Qodana failed
-          conclusion: ${{ job.status }}
-          output: |
-            {"summary": "1 problem found" }
+#       - uses: LouisBrunner/checks-action@v1.1.1
+#         if: always()
+#         with:
+#           token: ${{ secrets.GITHUB_TOKEN }}
+#           name: Qodana failed
+#           conclusion: ${{ job.status }}
+#           output: |
+#             {"summary": "1 problem found" }
