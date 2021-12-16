@@ -17,7 +17,6 @@ jobs:
           use-annotations: true
           baseline-path: ".github/workflows/baseline-short.sarif.json"
           baseline-include-absent: true
-          fail-threshold: 1
           
 #       - uses: LouisBrunner/checks-action@v1.1.1
 #         if: always()
