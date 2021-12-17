@@ -6,6 +6,10 @@ public class HelloWorld {
         }
         if(true) {
             System.out.println("Hello");   
+            System.out.println("Hello");   
+            System.out.println("Hello");   
+            System.out.println("Hello");   
+            System.out.println("Hello");   
         }
         return s;
     }
